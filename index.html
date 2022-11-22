@@ -1,0 +1,28 @@
+<head>
+  <title>Google Meet - Auto Hand Raiser</title>
+  <meta charset="utf-8" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <script src="popup.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="m-3 d-flex flex-column" style="width: 20em">
+    <h5 class="text-center">Auto Hand Raiser</h4>
+    <h6 class="text-center">(for Google Meet)</h5>
+    <p>
+      Add below patterns for titles of meetings you want to automatically raise
+      your hand as soon as you join.
+    </p>
+    <input id="patternInput" placeholder="Pattern to match..." type="text" class="form-control mb-1"/>
+        <select id="matchTypes" class="form-select mb-2">
+            <option selected>Match Type</option>
+            <option value="exact">Exact</option>
+            <option value="regex">Regex</option>
+        </select>
+
+    <button id="addButton" class="btn btn-primary">Add</button>
+  </div>
+</body>

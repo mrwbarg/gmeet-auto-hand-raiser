@@ -1,0 +1,19 @@
+{
+  "name": "Google Meet Auto Hand Raiser",
+  "version": "1.0.0",
+  "description": "Automatically raise your hand when joining a GMeet meeting.",
+  "manifest_version": 3,
+  "author": "Mauricio R. W. Barg",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "GMeet - Auto Hand Raiser"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": ["https://meet.google.com/*"],
+  "icons": {
+    "128": "alien-hand.png"
+  }
+}
