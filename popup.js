@@ -4,7 +4,7 @@ const readLocalStorage = async (key) => {
   return new Promise((resolve, reject) => {
     chrome.storage.local.get([key], function (result) {
       if (result[key] === undefined) {
-        reject();
+        resolve([]);
       } else {
         if (result[key]) {
           resolve(JSON.parse(result[key]));
@@ -35,9 +35,7 @@ async function createPatternTable() {
     var patternToDelete = storedData.filter((e) => e.pattern === pattern)[0];
 
     var indexToPop = storedData.indexOf(patternToDelete);
-    console.log(patternToDelete);
     storedData.splice(indexToPop, 1);
-    console.log(storedData);
 
     chrome.storage.local.set({
       hand_raiser_patterns: JSON.stringify(storedData),
@@ -48,7 +46,6 @@ async function createPatternTable() {
 
   document.getElementById("patternTable")?.remove();
 
-  var headers = ["Pattern", "Match", ""];
   var table = document.createElement("div");
   table.setAttribute("id", "patternTable");
   table.setAttribute("class", "m-3 container");
@@ -64,7 +61,7 @@ async function createPatternTable() {
   head2.setAttribute("class", "col-2");
   head3.setAttribute("class", "col-1");
 
-  head1.innerHTML = "<b >Pattern</b>";
+  head1.innerHTML = "<b>Pattern</b>";
   head2.innerHTML = "<b>Match</b>";
 
   headerRow.appendChild(head1);
